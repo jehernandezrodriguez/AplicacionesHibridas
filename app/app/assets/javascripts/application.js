@@ -15,4 +15,7 @@
 //= require turbolinks
 //= require_tree .
 
-console.log("deb");
+//= require jquery3
+//= require popper
+//= require bootstrap
+
