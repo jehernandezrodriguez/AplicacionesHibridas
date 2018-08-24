@@ -2,7 +2,7 @@ class ImagesController < ApplicationController
     
     before_action :set_image, only: [:show, :edit, :update, :destroy]
     def index
-        @images = Image.all            # variable de tipo array @images
+        @image = Image.all            # variable de tipo array @images
     end
 
     def new
@@ -11,6 +11,7 @@ class ImagesController < ApplicationController
 
     def create
         #render plain: params[:image].inspect
+        @image = Image.new images_params
         @image.save
         redirect_to @image #redirecciona a una nueva vista    
     end
