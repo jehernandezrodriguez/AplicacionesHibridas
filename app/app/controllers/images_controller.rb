@@ -2,7 +2,7 @@ class ImagesController < ApplicationController
     
     before_action :set_image, only: [:show, :edit, :update, :destroy]
     def index
-        @image = Image.all            # variable de tipo array @images
+        @images = Image.all            # variable de tipo array @images
     end
 
     def new
@@ -18,6 +18,7 @@ class ImagesController < ApplicationController
 
     def show
     end
+   
     def edit
     end
 
@@ -31,14 +32,16 @@ class ImagesController < ApplicationController
         @image.destroy
         redirect_to images_path 
     end
-
+   
+  
 
     
     private
 
-    def images_params 
-        params.require(:image).permit(:description)
+    def images_params
+        params.require(:image).permit :description, :picture
     end
+
     def set_image
         @image = Image.find params[:id]
     end
